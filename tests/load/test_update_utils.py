@@ -273,4 +273,11 @@ def test_check_and_return_command_line_args_three_args():
 
 def test_check_and_return_command_line_args_too_many_args():
     with pytest.raises(ValueError):
+        _ = utils.check_and_return_command_line_args(["a", "b", "c", "d"]) 
+
+def test_check_and_return_command_line_args_invalid_arg():
+    with pytest.raises(ValueError):
+        _ = utils.check_and_return_command_line_args(["a", "b", "c", "d"])
+
+    with pytest.raises(ValueError):
         _ = utils.check_and_return_command_line_args(["a", "b", "c", "d"])

@@ -18,7 +18,7 @@ import sys
 #
 import sphinx_rtd_theme
 
-sys.path.insert(0, os.path.abspath(".."))
+sys.path.insert(0, os.path.abspath("../../src"))
 
 # -- Project information -----------------------------------------------------
 
@@ -54,16 +54,21 @@ autodoc_member_order = "bysource"
 autodoc_mock_imports = [
     "beautifulsoup4",
     "emoji",
+    "flax",
     "langcodes",
-    "language_data",
     "mwparserfromhell",
     "pandas",
+    "pyarrow",
     "PyICU",
     "pytest",
     "pytest-cov",
+    "ruff",
     "sentencepiece",
     "SPARQLWrapper",
     "tabulate",
+    "tensorflow",
+    "torch",
+    "tqdm",
     "transformers",
 ]
 
@@ -180,8 +185,11 @@ texinfo_documents = [
 html_logo = "_static/ScribeDataLogo.png"
 html_theme_options = {
     "logo_only": True,
-    "display_version": False,
+    "display_version": True,
 }
+
+# Adding favicon to the docs.
+html_favicon = "_static/ScribeFavicon.ico"
 
 # Importing custom css for theme customization.
 html_css_files = [

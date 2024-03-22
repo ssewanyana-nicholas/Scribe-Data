@@ -1,18 +1,13 @@
 """
-Process Unicode
----------------
-
 Module for processing Unicode based corpuses for autosuggestion and autocompletion generation.
 
 Contents:
     gen_emoji_lexicon
 """
 
-
 import csv
 import fileinput
 import json
-import re
 from importlib.resources import files
 
 import emoji
@@ -20,7 +15,7 @@ from icu import Char, UProperty
 from tqdm.auto import tqdm
 
 from scribe_data.extract_transform.emoji_utils import get_emoji_codes_to_ignore
-from scribe_data.load.update_utils import (
+from scribe_data.utils import (
     get_language_iso,
     get_path_from_et_dir,
 )
@@ -227,7 +222,7 @@ def gen_emoji_lexicon(
 
         path_to_data_table = (
             get_path_from_et_dir()
-            + "/Scribe-Data/src/scribe_data/load/_update_files/data_table.txt"
+            + "/Scribe-Data/src/scribe_data/load/update_files/data_table.txt"
         )
 
         for line in fileinput.input(path_to_data_table, inplace=True):
@@ -243,7 +238,7 @@ def gen_emoji_lexicon(
 
         path_to_total_data = (
             get_path_from_et_dir()
-            + "/Scribe-Data/src/scribe_data/load/_update_files/total_data.json"
+            + "/Scribe-Data/src/scribe_data/load/update_files/total_data.json"
         )
 
         with open(path_to_total_data, encoding="utf-8") as f:
